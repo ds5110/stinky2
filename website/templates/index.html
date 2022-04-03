@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stinky Project</title>
+  <!-- <link href="./css/bootstrap.min.css" rel="stylesheet">
+  <link href="./css/navbar.css" rel="stylesheet">
+  <link href="./css/story.css" rel="stylesheet"> -->
+  <!-- <script src="{{url_for('static', filename='index.js')}}"></script> -->
+  <link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{url_for('static', filename='css/navbar.css')}}" rel="stylesheet">
+  <link href="{{url_for('static', filename='css/story.css')}}" rel="stylesheet">
+  <link href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" rel="stylesheet">
+  <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+  <style></style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Portland Malodour Project (aka Stinky)</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Story</a>
+          </li>
+          <li class="nav-item">
+            <!-- <a class="nav-link" href="./terminals.html">Terminal Dashboard</a> -->
+            <a class="nav-link" href="{{ url_for('terminals')}}">Terminal Dashboard</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="body-padding">
+    <div
+      class="d-flex justify-content-between flex-direction flex-md-column align-items-left pt-3 pb-2 mb-3 border-bottom">
+
+      <h1>Scope of Project</h1>
+      <div>
+        <p> Residents of Portland and South Portland in Maine have been reporting disruptive smells in the air
+          on certain days of the year.
+          South Portland has over 25,500 residents, and is the host of oil, gasoline, and asphalt tanks.
+          These tanks do not have emissions controls and the emissions, in the form of odors,
+          are reported in both South Portland and Portland.
+          Many of the emissions are odorless and toxic, and may or may not correlate with odor complaints.
+          It's been unclear what the source of the smells might be and difficult to understand the extent of the
+          issue on both sides of the Fore River, which separates Portland and South Portland.
+
+          The City of South Portland relies on <a href="https://smellmycity.org/">Smell My City</a> for odor complaints,
+          while Portland relies on <a href="https://seeclickfix.com/portland_2">See Click Fix<a />.
+            The Department of Environmental Protection has <a
+              href="https://www.maine.gov/dep/air/monitoring/spo-sampling-results.html">0 VOC Canister Monitors<a />
+              (volatile organic compounds) in Portland and South Portland.
+              The tanks are considered <a href="https://www.maine.gov/dep/air/permits/minor.html">minor sources of air
+                emissions<a />,
+                and regulated accordingly.
+
+        </p>
+      </div>
+
+      <h1>Why is Controlling Malodour Important?</h1>
+      <div>
+        <p>Odour can be defined as a mixture of gases in the air that we can smell, which can both be pleasant or
+          unpleasant smells (Victoria, 2020). Odour pollution refers to these unpleasant smells, which although can
+          simple be unpleasant, it can have other risks associated with it. Milder negative externalities include
+          feelings of disgust or discomfort, which can lead to headaches, nausea, vomiting and also behavioural changes.
+          (Shukla, 1991) It has been proven that our sense of smell gives a startling fast response to potentially
+          dangerous situations, jerking us away from the stench and less willing to be in the source area as much
+          (Genter, 2019). The surrounding houses and businesses have the potential of being greatly impacted if nobody
+          wants to go around that area. More serious health effects can occur when the negative smells are also toxic in
+          its nature, particularly to the respiratory system. Soot and dust are common smells that are cancerous and can
+          damage our lungs and have a knock on effect on our body (Niranjan, 2017).</p>
+      </div>
+
+      <h1>Original Project Prototype</h1>
+      <div>
+        <div class="my-4 w-100" id="originalMap"></div>
+      </div>
+
+      <h1>Language Analysis</h1>
+      <div>
+        <p> With the reporting of the smell, the citizen can also describe the smell. Here, the most used words to
+          describe the malodour were put together to get a better understand of what kinds of smells were most critical.
+          Industrial smells, mainly oil and asphalt were smelled, as can be seen by the graph.</p>
+
+        <iframe width="100%" height="476" frameborder="0"
+          src="https://observablehq.com/embed/c2397f201500cb0c?cells=languageAnalysis"></iframe>
+
+      </div>
+
+      <h1>Portland Demographics</h1>
+      <div>
+        <p>
+          Understanding the demographics of a region affected by malodourous industrial sources can highlight
+          socio-economic disparities across cities and neighborhoods with regards to zoning, environmental regulation
+          and public health implications. From the map below, people who live in the census tracts most affected by the
+          smells reported tend to have lower to middle bracket of median income and lower property values, as well as
+          lower median age of
+          residents with less average rooms on the property and are rentals vs owned.<br><br>
+
+          Using the drop down menu below you can control what demographic features are shown by the choropleth layer
+          made of polygons overlaying the base map, and you can click and drag customized windows of time to filter the
+          heat map data.
+        </p>
+        <div class="demo-control-container">
+          <div id="demoDropdown"></div>
+          <div id="demoLegend"></div>
+        </div>
+        <div class="part-width my-4" id="demoTimeBrush"></div>
+        <div class="my-4 w-100" id="demoMap"></div>
+      </div>
+
+      <div>
+        <p> There seem to be three main clusters of 'stinky' data: the north-most is in the R-4 zoning, which classfies
+          as residential. It borders more residential (R-6) and ROS (recreation open source) zoning.
+
+          The clusters around South Portland are also in residential areas (A, G) but with neighbouring commerical (C)
+          and limited business zoning (LB).
+
+          Given the zoning, the smells to be affecting mostly households and community spaces, even though the smells
+          are industrial.
+
+        </p>
+      </div>
+
+      <h1>Weather Patterns</h1>
+      <p>After performing a correlative analysis of weather variables to the smells, it was deteremined that there was
+        not a strong enough signal to decude that any one particular weather value would have a significant effect on
+        the frequency or severity of smells. The strongest signal found was from wind direction, in the cardinal
+        direction of southwest.</p>
+      <div class="weather-container">
+        <div id="smellHeatMap"></div>
+        <div id="weatherFeatures"></div>
+        <div id="weatherHeatMap"></div>
+      </div>
+
+      <h1>Oil & Natural Gas Terminals</h1>
+      <div>
+        <p>
+          Given that South Portland is the host of oil, gasoline, and asphalt tanks owned by a dozen Oil and Natural Gas
+          companies, it seems logical to understand the logistics of the deliveries of this flammable and toxic cargo.
+          Our team was given a data extract of vessel arrivals by date, terminal and cargo load, which can be further
+          explored on the <a href="./terminals.html">Terminal Dashboard</a> tab. But with just the two histograms shown
+          below, it is easy to infer that: <br>
+        <ol>
+          <li>
+            Buckeye and Citgo terminals are responsible for nearly 3/4 of the oil and natural gas vessels that enter
+            Portland Harbour
+          </li>
+          <li>
+            Similarly, unleaded gasoline and diesel make up a majority of the cargo/product type being delivered
+          </li>
+        </ol>
+        </p>
+        <h4>Vessel Frequency by Terminal</h4>
+        <div id="terminalHistogram"></div>
+        <br><br>
+        <h4>Vessel Frequency by Cargo Type</h4>
+        <div id="cargoType"></div>
+      </div>
+
+    </div>
+  </main>
+</body>
+
+<footer class="body-padding">
+  <h2>Appendix</h2>
+  <ul>
+    <li>Victoria (2020). About odour pollution. [online] Vic.gov.au. Available Available online at <a
+        href="https://www.epa.vic.gov.au/for-community/environmental-information/odour/about-odour" target="">Link</a>
+      [Accessed 26 Nov. 2021].</li>
+
+    <li>U.S. Census Bureau. American Community Survey 2019 5-Year Data API. Available online at <a
+        href="https://www.census.gov/data/developers/data-sets/acs-5year.html" target="">Link</a>
+      [Accessed 7 Dec. 2021].</li>
+
+    <li>State of Maine. Maine Census Tracts 2010 GeoLibrary. Available online at <a
+        href="https://maine.hub.arcgis.com/datasets/e7a7e490a9bf4bc08c7507f7aabe0f8a/" target="">Link</a>
+      [Accessed 27 Nov. 2021].</li>
+
+    <li>Shukla NP. Air pollution by odour--sources, identification and control. Rev Environ Health. 1991
+      Oct-Dec;9(4):239-44. doi: 10.1515/reveh.1991.9.4.239. PMID: 1842457.</li>
+
+    <li>Genter MB, Doty RL. Toxic exposures and the senses of taste and smell. Handb Clin Neurol. 2019;164:389-408. doi:
+      10.1016/B978-0-444-63855-7.00022-8. PMID: 31604559.</li>
+
+    <li>Niranjan, Rituraj, and Ashwani Kumar Thakur. “The Toxicological Mechanisms of Environmental Soot (Black Carbon)
+      and Carbon Black: Focus on Oxidative Stress and Inflammatory Pathways.” Frontiers in immunology vol. 8 763. 30
+      Jun.
+      2017, doi:10.3389/fimmu.2017.00763</li>
+  </ul>
+
+  <p>Credit: <a href="https://observablehq.com/d/c2397f201500cb0c">Stinky Project - Prototype 2</a></p>
+
+<!--   <script src="./scripts/bootstrap.bundle.min.js"></script>
+  <script src="./scripts/demographicsImport.js" type="module"></script>
+  <script src="./scripts/terminalImport.js" type="module"></script>
+  <script src="./scripts/prototypeImport.js" type="module"></script>
+  <script src="./scripts/weatherImport.js" type="module"></script> -->
+
+  <script src="{{url_for('static', filename='scripts/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{url_for('static', filename='scripts/demographicsImport.js')}}" type="module"></script>
+  <script src="{{url_for('static', filename='scripts/terminalDashboard.js')}}" type="module"></script>
+  <script src="{{url_for('static', filename='scripts/prototypeImport.js')}}" type="module"></script>
+  <script src="{{url_for('static', filename='scripts/weatherImport.js')}}" type="module"></script>
+
+</footer>
+
+</html>

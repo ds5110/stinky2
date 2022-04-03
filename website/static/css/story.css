@@ -1,0 +1,33 @@
+.full-width {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+
+.part-width {
+    width: 50%;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;    
+}
+
+.body-padding {
+    padding: 20px;
+}
+
+.demo-control-container {
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-gap: 10px; 
+    width: 1200px;
+}
+
+svg {
+    max-width: 1200px;
+    padding-left: 20px;
+}
