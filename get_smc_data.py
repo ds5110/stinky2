@@ -1,4 +1,5 @@
 import csv
+import time
 
 import requests
 
@@ -8,8 +9,8 @@ URL = "https://api.smellpittsburgh.org/api/v2/smell_reports"
 PARAMS = {
     "format": "json",
     "zipcodes": "4101,4102,4106,4107,4103,4108,4124",
-    "start_time": "1644037200",
-    "end_time": "1646715599",
+    "start_time": "1577836800", # Jan 1 2020 12:00 AM
+    "end_time": int(time.time()), # right meow
     "timezone_string": "America%2FNew_York"
 }
 
@@ -27,7 +28,19 @@ with open(OUTPUT_FILE, "w") as data_file:
         raise
     csv_writer = csv.writer(data_file)
 
-    for row in resp.json():
+    raw_smc_data = resp.json()
+
+    filtered_smc_data = []
+
+    for complaint in raw_smc_data:
+        # For some reason the API will include other zip codes including NoneType and boolean values
+        if complaint["zipcode"] and len(complaint["zipcode"]) <= 5 and int(complaint["zipcode"]) in [4101, 4102, 4106, 4107, 4103, 4108, 4124]:
+            complaint["epoch time"] = complaint["observed_at"]
+            complaint["date & time"] = time.ctime(complaint["observed_at"])
+            complaint.pop("observed_at")
+            filtered_smc_data.append(complaint)
+
+    for row in filtered_smc_data:
         if not header_written:
             header = row.keys()
             csv_writer.writerow(header)
