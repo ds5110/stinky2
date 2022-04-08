@@ -91,7 +91,7 @@ for year in [2020, 2021, 2022]:
 	avg_winds.extend([item["value"] for item in d["results"] if item["datatype"] == "AWND"])
 
 df_wind["date"] = [str(date[0:10]).strip() for date in dates]
-df_wind["average_temp"] = [value for value in avg_winds]
+df_wind["average_wind"] = [value for value in avg_winds]
 
 dates = []
 precips = []
