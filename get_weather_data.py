@@ -44,6 +44,60 @@ HEADERS = {
 }
 
 dates = []
+WDF5s = []
+
+df_wd5fs = pd.DataFrame()
+
+for year in [2020, 2021, 2022]:
+	print(f"Getting WDF5 data for {year}")
+
+	start = f"{year}-01-01"
+	end = f"{year}-12-31"
+
+	PARAMS["startdate"] = start
+	PARAMS["enddate"] = end
+	
+	PARAMS["datatypeid"] = "WDF5"
+
+	r = requests.get(url=URL, params=PARAMS, headers=HEADERS)
+	d = r.json()
+
+	dates.extend([item["date"] for item in d["results"] if item["datatype"] == "WDF5"])
+	WDF5s.extend([item["value"] for item in d["results"] if item["datatype"] == "WDF5"])
+
+	# print(dates)
+	# print(len(dates))
+
+df_wd5fs["date"] = [str(date[0:10]).strip() for date in dates]
+df_wd5fs["WDF5"] = [value for value in WDF5s]
+
+
+dates = []
+WSF5s = []
+
+df_ws5fs = pd.DataFrame()
+
+for year in [2020, 2021, 2022]:
+	print(f"Getting WSF5 data for {year}")
+
+	start = f"{year}-01-01"
+	end = f"{year}-12-31"
+
+	PARAMS["startdate"] = start
+	PARAMS["enddate"] = end
+	
+	PARAMS["datatypeid"] = "WSF5"
+
+	r = requests.get(url=URL, params=PARAMS, headers=HEADERS)
+	d = r.json()
+
+	dates.extend([item["date"] for item in d["results"] if item["datatype"] == "WSF5"])
+	WSF5s.extend([item["value"] for item in d["results"] if item["datatype"] == "WSF5"])
+
+df_ws5fs["date"] = [str(date[0:10]).strip() for date in dates]
+df_ws5fs["WSF5"] = [value for value in WSF5s]
+
+dates = []
 avg_temps = []
 
 df = pd.DataFrame()
@@ -122,5 +176,7 @@ df_prec["precipitation"] = [value for value in precips]
 
 df = df.merge(df_wind, on="date")
 df = df.merge(df_prec, on="date")
+df = df.merge(df_wd5fs, on="date")
+df = df.merge(df_ws5fs, on="date")
 
 df.to_csv("weather_data.csv", index=False)
