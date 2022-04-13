@@ -65,9 +65,6 @@ for year in [2020, 2021, 2022]:
 	dates.extend([item["date"] for item in d["results"] if item["datatype"] == "WDF5"])
 	WDF5s.extend([item["value"] for item in d["results"] if item["datatype"] == "WDF5"])
 
-	# print(dates)
-	# print(len(dates))
-
 df_wd5fs["date"] = [str(date[0:10]).strip() for date in dates]
 df_wd5fs["WDF5"] = [value for value in WDF5s]
 
