@@ -11,6 +11,8 @@ weather_df = pd.read_csv("./sample_data/weather_data.csv")
 
 complaints_df["date"] = [time.strftime("%Y-%m-%d", time.strptime(dt, "%c")) for dt in complaints_df["date & time"]]
 
+complaints_df = complaints_df[complaints_df["zipcode"] > 4105]
+
 df = pd.DataFrame()
 
 df["date"] = weather_df["date"]
@@ -24,10 +26,6 @@ df = df.merge(weather_df, on="date")
 
 print(df)
 
-## FIXME:
-df.drop("precipitation", axis=1, inplace=True)
-
-# X = df[["average_temp", "average_wind"]]
 
 X = df[["average_temp", "average_wind", "WSF5", "WDF5"]]
 Y = df["daily complaints"]
