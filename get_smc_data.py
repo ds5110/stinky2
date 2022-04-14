@@ -1,4 +1,5 @@
 import csv
+import datetime
 import time
 
 import requests
@@ -20,7 +21,7 @@ OUTPUT_FILE = "./sample_data/smc_data.csv"
 header_written = False
 
 
-with open(OUTPUT_FILE, "w") as data_file:
+with open(OUTPUT_FILE, "w", newline='') as data_file:
     try:
         resp = requests.get(url=URL, params=PARAMS)
     except Exception as exc:
@@ -37,7 +38,9 @@ with open(OUTPUT_FILE, "w") as data_file:
         if complaint["zipcode"] and len(complaint["zipcode"]) <= 5 and int(complaint["zipcode"]) in [4101, 4102, 4106, 4107, 4103, 4108, 4124]:
             complaint["epoch time"] = complaint["observed_at"]
             complaint["date & time"] = time.ctime(complaint["observed_at"])
+            complaint["date"] = datetime.datetime.fromtimestamp(complaint["observed_at"]).strftime('%x')
             complaint.pop("observed_at")
+
             filtered_smc_data.append(complaint)
 
     for row in filtered_smc_data:
