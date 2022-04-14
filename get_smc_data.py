@@ -1,5 +1,6 @@
 import csv
 import datetime
+import math
 import time
 
 import requests
@@ -20,6 +21,12 @@ OUTPUT_FILE = "./sample_data/smc_data.csv"
 
 header_written = False
 
+tank_coord_deg = {
+    "sprague": (43.637210, -70.286400),
+    "portland_pipeline": (43.629500, -70.271290),
+    "south_portland_terminal": (43.635930, -70.285290),
+    "gulf_oil": (43.650240, -70.239670)
+}
 
 with open(OUTPUT_FILE, "w", newline='') as data_file:
     try:
@@ -40,6 +47,14 @@ with open(OUTPUT_FILE, "w", newline='') as data_file:
             complaint["date & time"] = time.ctime(complaint["observed_at"])
             complaint["date"] = datetime.datetime.fromtimestamp(complaint["observed_at"]).strftime('%x')
             complaint.pop("observed_at")
+            lat1 = complaint["latitude"] / (180 / math.pi)
+            lon1 = complaint["longitude"] / (180 / math.pi)
+            for tank, coord in tank_coord_deg.items():
+                lat2 = float(coord[0]) / (180 / math.pi)
+                lon2 = float(coord[1]) / (180 / math.pi)
+                dist = 3963 * math.acos((math.sin(lat1)*math.sin(lat2)) + math.cos(lat1)*math.cos(lat2)*math.cos(lon2 - lon1))
+                complaint[tank + "_miles"] = dist
+
 
             filtered_smc_data.append(complaint)
 
