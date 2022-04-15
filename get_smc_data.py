@@ -21,11 +21,18 @@ OUTPUT_FILE = "./sample_data/smc_data.csv"
 
 header_written = False
 
+# Addresses found in Maine DEP report
+# https://www.protectsouthportland.com/_files/ugd/6281f2_699328196df94c75a61f58fd4824abc2.pdf
+
+# Lat long found using https://www.latlong.net/convert-address-to-lat-long.html
+
 tank_coord_deg = {
     "sprague": (43.637210, -70.286400),
     "portland_pipeline": (43.629500, -70.271290),
     "south_portland_terminal": (43.635930, -70.285290),
-    "gulf_oil": (43.650240, -70.239670)
+    "gulf_oil": (43.650240, -70.239670),
+    "global": (43.634410, -70.284430),
+    "citgo": (43.637009, -70.267303)
 }
 
 with open(OUTPUT_FILE, "w", newline='') as data_file:
