@@ -145,7 +145,7 @@ async function _stinky(d3)
   // https://observablehq.com/@mbostock/fetch-error-handling
   // FIXME: use local csv
   // const url='https://raw.githubusercontent.com/ds5110/stinky2/main/sample_data/smc_data.csv2';
-  const url = "http://localhost:5000/smc_data";
+  const url = "http://localhost:5000/merged_data";
   const response = await fetch(url);
   if (!response.ok) {
     console.log(`Not OK response from fetch: ${response}`);
