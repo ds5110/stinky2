@@ -21,9 +21,13 @@ weather_df = pd.read_csv("./sample_data/weather_data.csv")
 
 complaints_df["date"] = [time.strftime("%Y-%m-%d", time.strptime(dt, "%c")) for dt in complaints_df["date & time"]]
 
-complaints_df = complaints_df[complaints_df["zipcode"] > 4105]
+# For South Portland
+# complaints_df = complaints_df[complaints_df["zipcode"] > 4105]
 
 df = pd.DataFrame()
+
+df["latitude"] = complaints_df["latitude"]
+df["longitude"] = complaints_df["longitude"]
 
 df["date"] = weather_df["date"]
 
@@ -53,4 +57,4 @@ df = df.join(categorical)
 df = df.fillna(0)
 
 for of in OUTPUT_FILES:
-	df.to_csv(of)
+	df.to_csv(of, index=False)
