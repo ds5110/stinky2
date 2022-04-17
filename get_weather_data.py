@@ -68,6 +68,11 @@ for year in [2020, 2021, 2022]:
 df_wd5fs["date"] = [str(date[0:10]).strip() for date in dates]
 df_wd5fs["WDF5"] = [value for value in WDF5s]
 
+# one-hot encoding for cardinal wind directions. NORTH is the baseline.
+df_wd5fs['EAST'] = df_wd5fs.apply(lambda row: 1 if 45 <= row['WDF5'] < 135 else 0, axis=1)
+df_wd5fs['SOUTH'] = df_wd5fs.apply(lambda row: 1 if 135 <= row['WDF5'] < 225 else 0, axis=1)
+df_wd5fs['WEST'] = df_wd5fs.apply(lambda row: 1 if 225 <= row['WDF5'] < 315 else 0, axis=1)
+
 
 dates = []
 WSF5s = []
