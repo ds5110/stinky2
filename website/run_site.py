@@ -33,6 +33,7 @@ def new_map():
 def smc_data():
     return send_file("static/data/smc_data.csv")
 
+
 # serve the merged data file
 @app.route("/merged_data")
 def merged_data():

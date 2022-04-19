@@ -13,6 +13,9 @@ STATION = "GHCND:USW00014764"
 
 URL = "https://www.ncdc.noaa.gov/cdo-web/api/v2/data"
 
+# https://www7.ncdc.noaa.gov/climvis/help_wind.html
+# Wind direction is "from"
+
 # https://docs.opendata.aws/noaa-ghcn-pds/readme.html
 # Available at PWM:
 # AWND - Average daily wind speed (tenths of meters per second)
