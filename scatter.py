@@ -22,7 +22,10 @@ daily_complaints.columns = ["date", "daily complaints"]
 df = df.merge(daily_complaints, on="date")
 df = df.merge(weather_df, on="date")
 
-g = sns.scatterplot(x="average_wind", y="daily complaints", hue="WDF5", palette="flare", data=df)
+# g = sns.scatterplot(x="average_wind", y="daily complaints", hue="WDF5", palette="flare", data=df)
 # g = sns.scatterplot(x="average_wind", y="daily complaints", data=df)
+
+# g = sns.scatterplot(x="average_wind", y="daily complaints", data=df).set(title="Average wind speed vs number of daily complaints")
+g = sns.scatterplot(x="average_temp", y="daily complaints", data=df).set(title="Average temperature vs number of daily complaints")
 
 plt.show()
