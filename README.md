@@ -15,12 +15,12 @@ Retrieving weather data requires an [API token](https://www.ncdc.noaa.gov/cdo-we
 
 ## EDA results
 
-<img src="img/scatter_temp_vs_complaints.png" width="500px">
+<img src="images/scatter_temp_vs_complaints.png" width="500px">
 
-<img src="img/scatter_wind_vs_complaints.png" width="500px">
+<img src="images/scatter_wind_vs_complaints.png" width="500px">
 
-<img src="img/wc_hist_east_sopo.png" width="500px">
+<img src="images/wc_hist_east_sopo.png" width="500px">
 
-<img src="img/wc_hist_west_sopo.png" width="500px">
+<img src="images/wc_hist_west_sopo.png" width="500px">
 
-<img src="img/wc_hist_west_end.png" width="500px">
+<img src="images/wc_hist_west_end.png" width="500px">
