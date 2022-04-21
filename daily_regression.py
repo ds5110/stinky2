@@ -6,8 +6,8 @@ import pandas as pd
 import seaborn as sns
 import statsmodels.api as sm
 
-complaints_df = pd.read_csv("./sample_data/smc_data.csv")
-weather_df = pd.read_csv("./sample_data/weather_data.csv")
+complaints_df = pd.read_csv("./output_data/smc_data.csv")
+weather_df = pd.read_csv("./output_data/weather_data.csv")
 
 complaints_df["date"] = [time.strftime("%Y-%m-%d", time.strptime(dt, "%c")) for dt in complaints_df["date & time"]]
 

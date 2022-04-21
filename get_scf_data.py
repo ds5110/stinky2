@@ -16,7 +16,7 @@ PARAMS = {
     "page": 1
 }
 
-OUTPUT_FILE = "./sample_data/scf_data.csv"
+OUTPUT_FILE = "./output_data/scf_data.csv"
 
 
 header_written = False
