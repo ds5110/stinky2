@@ -16,7 +16,7 @@ PARAMS = {
     "timezone_string": "America%2FNew_York"
 }
 
-OUTPUT_FILES = ["./sample_data/smc_data.csv", "./website/static/data/smc_data.csv"]
+OUTPUT_FILES = ["./output_data/smc_data.csv", "./website/static/data/smc_data.csv"]
 
 
 header_written = False

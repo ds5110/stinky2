@@ -7,7 +7,7 @@ import seaborn as sns
 import statsmodels.api as sm
 
 
-df = pd.read_csv("./sample_data/merged_data.csv")
+df = pd.read_csv("./output_data/merged_data.csv")
 
 columns = ["average_temp", "average_wind", "WSF5", "sprague_miles", "portland_pipeline_miles", "south_portland_terminal_miles", "gulf_oil_miles", "global_miles", "citgo_miles", 'N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW']
 

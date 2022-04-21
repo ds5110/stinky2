@@ -8,7 +8,7 @@ import numpy as np
 import requests
 
 
-TOKEN = ""
+TOKEN = "ysPGQlyhWcGbQBYCPEnGOLnUajVYrqBQ"
 STATION = "GHCND:USW00014764"
 
 URL = "https://www.ncdc.noaa.gov/cdo-web/api/v2/data"

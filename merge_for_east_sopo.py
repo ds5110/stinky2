@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 from sklearn import preprocessing
 
-OUTPUT_FILES = ["./sample_data/merged_east_sopo_data.csv", "./website/static/data/merged_east_sopo_data.csv"]
+OUTPUT_FILES = ["./output_data/merged_east_sopo_data.csv", "./website/static/data/merged_east_sopo_data.csv"]
 
 
 # DISTANCES = ["sprague_miles", "portland_pipeline_miles", "south_portland_terminal_miles", "gulf_oil_miles", "global_miles", "citgo_miles"]
@@ -16,8 +16,8 @@ def calculate_bearing(d):
 	return DIRECTIONS[ix % len(DIRECTIONS)]
 
 
-complaints_df = pd.read_csv("./sample_data/smc_data.csv")
-weather_df = pd.read_csv("./sample_data/weather_data.csv")
+complaints_df = pd.read_csv("./output_data/smc_data.csv")
+weather_df = pd.read_csv("./output_data/weather_data.csv")
 
 complaints_df["date"] = [time.strftime("%Y-%m-%d", time.strptime(dt, "%c")) for dt in complaints_df["date & time"]]
 
