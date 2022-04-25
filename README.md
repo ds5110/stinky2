@@ -32,3 +32,9 @@ Retrieving weather data requires an [API token](https://www.ncdc.noaa.gov/cdo-we
 <img src="images/wc_hist_west_sopo.png" width="500px">
 
 <img src="images/wc_hist_west_end.png" width="500px">
+
+<img src="images/wc_hist_temp_east_sopo.png" width="500px">
+
+<img src="images/wc_hist_temp_west_sopo.png" width="500px">
+
+<img src="images/wc_hist_temp_west_end.png" width="500px">
