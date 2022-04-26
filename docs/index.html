@@ -133,7 +133,9 @@
     import { Runtime, Inspector } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
 
     // Your notebook, compiled as an ES module.
-    import notebook from "https://api.observablehq.com/d/88a8d31c7bc2f92d.js?v=3";
+//    import notebook from "https://api.observablehq.com/d/88a8d31c7bc2f92d.js?v=3"; // lat, lon
+    import notebook from "https://api.observablehq.com/d/095056cccbc4d2e6.js?v=3"; // wind direction & date
+
 
     // Load the notebook, rendering the value of each cell into the provided DOM node.
     new Runtime().module(notebook, name => {
