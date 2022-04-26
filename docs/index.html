@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="author" content="The students in DS5010 Spring 2022">
+  <meta name="author" content="The students in DS5110 Spring 2022">
   <title>Broadband Project</title>
 
   <!-- Bootstrap core CSS -->
@@ -29,16 +29,19 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <a class="nav-link" href="#visuals">First</a>
+            <a class="nav-link" href="#first">First</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#map">Second</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#analysis">Third</a>
+            <a class="nav-link" href="#second">Third</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#acknowledgements">Fourth</a>
+            <a class="nav-link" href="#analysis">Analysis</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#acknowledgements">Acknowledgements</a>
           </li>
         </ul>
         <a href="https://github.com/ds5110/stinky2" class="nav-item align-right mx-2">
@@ -59,38 +62,37 @@
       </div><!-- /.col -->
     </div><!-- /.row -->
 
-    <div id="map" class="row align-items-md-stretch p-1">
-      <div class="col-md-3 p-1">
-        <div class="h-100 p-5 bg-light border rounded-3">
-          <p class="fs-4">Select a County</p>
-          <div id="observable-county" class="pb-3">
-          </div>
-          <p class="fs-4">Select a Data Source</p>
-          <div id="observable-buttons" class="pb-3">
-          </div>
-          <p class="fs-4">Instructions</p>
-          <p>Click on a county in the map above to change geographic focus of the map on the right. Use the radio
-            buttons above to view different sets of data.</p>
-        </div>
-      </div><!-- /.col -->
-
-      <div class="col-md-9 p-1">
-        <div class="h-100 p-5 bg-light border rounded-3">
-          <h2>Map</h2>
-          <div id="observable-map" class="ratio ratio-4x3">
-          </div>
-          <p class="fs-4">Methodology</p>
-          <p>This map visualizes internet tier and underserved areas on a county-by-county basis. By breaking down the
-            dataset into county-sized pieces, the map can show full resolution without sacrificing too much speed or
-            usability.</p>
+    <div id="first" class="row align-items-md-stretch p-2">
+      <div class="col-md-12">
+        <div class="clearfix">
+          <img src="images/wc_hist_west_end.png" style='width: 40%; float:right; margin-right:10px;'>
+          <h2>Saving this space in case.</h2>
+          <p>Blah, blah, blah...</p>
+          <p>Blah, blah, blah...</p>
         </div>
       </div><!-- /.col -->
     </div><!-- /.row -->
 
-    <div id="visuals" class="row align-items-md-stretch p-2">
+    <div id="map" class="row align-items-md-stretch p-1">
+      <div class="col-md-12 p-1">
+        <div class="h-100 p-5 bg-light border rounded-3">
+          <h2>Map</h2>
+          <div id="my-map" class="ratio ratio-4x3">
+          </div>
+          <div id="my-brush">
+          </div>
+          <div id="my-brushed">
+          </div>
+          <p class="fs-4">Methodology</p>
+          <p>This map visualizes something.</p>
+        </div>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+
+    <div id="second" class="row align-items-md-stretch p-2">
       <div class="col-md-12">
         <div class="clearfix">
-          <img src="img/tiers.png" style='float:right; margin-right:10px;'>
+          <img src="images/wc_hist_west_end.png" style='width: 40%; float:right; margin-right:10px;'>
           <h2>Something is going on.</h2>
           <p>Blah, blah, blah...</p>
           <p>Blah, blah, blah...</p>
@@ -131,20 +133,19 @@
     import { Runtime, Inspector } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
 
     // Your notebook, compiled as an ES module.
-    import notebook from "https://api.observablehq.com/d/a9e917990e3d4594.js?v=3";
+    import notebook from "https://api.observablehq.com/d/88a8d31c7bc2f92d.js?v=3";
 
     // Load the notebook, rendering the value of each cell into the provided DOM node.
     new Runtime().module(notebook, name => {
-      if (name === "mycounty") {
-        return new Inspector(document.querySelector("#observable-county"));
-      }
       if (name === "map") {
-        return new Inspector(document.querySelector("#observable-map"));
+        return new Inspector(document.querySelector("#my-map"));
       }
-      if (name === "viewof type") {
-        return new Inspector(document.querySelector("#observable-buttons"));
+      if (name === "brush") {
+        return new Inspector(document.querySelector("#my-brush"));
       }
-      if (name === "data") return true;
+      if (name === "brushed") {
+        return new Inspector(document.querySelector("#my-brushed"));
+      }
     });
 
   </script>
