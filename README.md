@@ -3,24 +3,40 @@
 
 Turning stinky into a production site
 
-## complaints
+## Local development
 
-* Map
-  * The map is compelling
-  * Goal: automate the updates
-* Nature of the complaints
-  * Can this be turned into a classification problem?
-  * Is such an analysis worthwhile? Are they all the same? Does intensity vary?
-* Time-dependent word cloud or bar chart?
-  * Is interactive filtering in time the best approach?
-  * Or something else?
+Install requirements via `pip3 install -r requirements.txt`.
 
-## predictability
+To run the website, navigate to `/website` and run `run_site.py`.
 
-* What’s predictable in the data?
-  * Seasonal signal? (e.g., temperature, complaint frequency)
-  * Previous results show that there IS a seasonal effect
-* Weather?
-  * Complaints and wind speed and/or direction? (e.g., stagnant air? inversion layer?)
-* Scatterplots
-  * 
+To get, merge, and do analysis on the data, the following commands work:
+
+- `make get_data` retrieves weather and complaint data from APIs
+- `make merge_data` merges weather and complaint data together to prepare for analysis
+- `make scatterplot` creates scatterplots using weather and complaint data
+- `make histogram` creates histograms using weather and complaint data
+- `make regression` performs regression modeling using weather and complaint data
+
+## Generating data
+
+To create CSV files for smell complaints and weather, run `get_smc_data.py` and `get_weather_data.py`.
+
+Retrieving weather data requires an [API token](https://www.ncdc.noaa.gov/cdo-web/token). 
+
+## EDA results
+
+<img src="images/scatter_temp_vs_complaints.png" width="500px">
+
+<img src="images/scatter_wind_vs_complaints.png" width="500px">
+
+<img src="images/wc_hist_east_sopo.png" width="500px">
+
+<img src="images/wc_hist_west_sopo.png" width="500px">
+
+<img src="images/wc_hist_west_end.png" width="500px">
+
+<img src="images/wc_hist_temp_east_sopo.png" width="500px">
+
+<img src="images/wc_hist_temp_west_sopo.png" width="500px">
+
+<img src="images/wc_hist_temp_west_end.png" width="500px">
