@@ -1,6 +1,4 @@
-
 # stinky2
-
 Turning stinky into a production site
 
 ## Local development
