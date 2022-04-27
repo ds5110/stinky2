@@ -43,7 +43,7 @@ In western South Portland, the most complaints happen when the wind blows from t
 
 In the West End of Portland (zip codes in 04101 and 04102), the majority of complaints happen when the wind blows from the South (where most of the tank farms in South Portland reside).
 
-<img src="images/weather_frequency.png" width="500px">
+<img src="images/wind_direction_frequency.png" width="500px">
 
 The wind blows mostly from the South, Northwest, West, and North (in order of frequency), but complaints from the West End happen much more frequently when wind blows from the South.
 
