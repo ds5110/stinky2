@@ -47,6 +47,14 @@ In the West End of Portland (zip codes in 04101 and 04102), the majority of comp
 
 The wind blows mostly from the South, Northwest, West, and North (in order of frequency), but complaints from the West End happen much more frequently when wind blows from the South.
 
+<img src="images/wdf_hist_west_end.png" width="500px">
+
+Accounting for the frequency of wind directions removes bias from the data set and shows that, for the West End, complaints happen far more frequently when the wind blows from a southerly direction.
+
+<img src="images/wdf_hist_east_sopo.png" width="500px">
+
+<img src="images/wdf_hist_west_sopo.png" width="500px">
+
 <img src="images/wc_hist_temp_east_sopo.png" width="500px">
 
 <img src="images/wc_hist_temp_west_sopo.png" width="500px">

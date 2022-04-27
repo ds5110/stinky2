@@ -31,3 +31,27 @@ df["wind_direction"] = pd.Categorical(df["wind_direction"], DIRECTIONS)
 
 sns.histplot(df, x="wind_direction").set(title="Wind direction vs number of complaints (East SoPo)")
 plt.show()
+
+weather_df["wind_direction"] = weather_df.apply(lambda x: calculate_bearing(x["WDF5"]), axis=1)
+complaints_by_wd_df = pd.DataFrame(df["wind_direction"].value_counts()).reset_index()
+wd_freq_df = pd.DataFrame(weather_df["wind_direction"].value_counts()).reset_index()
+
+complaints_by_wd_df.columns = ["wind_direction", "num_complaints"]
+wd_freq_df.columns = ["wind_direction", "num_days"]
+
+merged_df = pd.merge(complaints_by_wd_df, wd_freq_df, on="wind_direction")
+
+merged_df["freq"] = merged_df["num_complaints"]/merged_df["num_days"]
+
+merged_df.drop("num_complaints", axis=1, inplace=True)
+merged_df.drop("num_days", axis=1, inplace=True)
+
+merged_df["wind_direction"] = pd.Categorical(merged_df["wind_direction"], DIRECTIONS)
+
+print(merged_df)
+
+ax = sns.histplot(data=merged_df, x="wind_direction", weights="freq")
+
+ax.set(title="Frequency of complaints by wind direction (East SoPo)")
+
+plt.show()
