@@ -11,8 +11,8 @@ To get, merge, and do analysis on the data, the following commands work:
 
 - `make get_data` retrieves weather and complaint data from APIs
 - `make merge_data` merges weather and complaint data together to prepare for analysis
-- `make scatterplot` creates scatterplots using weather and complaint data
-- `make histogram` creates histograms using weather and complaint data
+- `make scatterplots` creates scatterplots using weather and complaint data
+- `make histograms` creates histograms using weather and complaint data
 - `make regression` performs regression modeling using weather and complaint data
 
 ## Generating data
@@ -42,6 +42,10 @@ In western South Portland, the most complaints happen when the wind blows from t
 <img src="images/wc_hist_west_end.png" width="500px">
 
 In the West End of Portland (zip codes in 04101 and 04102), the majority of complaints happen when the wind blows from the South (where most of the tank farms in South Portland reside).
+
+<img src="images/weather_frequency.png" width="500px">
+
+The wind blows mostly from the South, Northwest, West, and North (in order of frequency), but complaints from the West End happen much more frequently when wind blows from the South.
 
 <img src="images/wc_hist_temp_east_sopo.png" width="500px">
 
