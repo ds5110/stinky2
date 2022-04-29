@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stinky Project</title>
+  <!-- Bootstrap core CSS -->
+  <!-- <link href="./css/bootstrap.min.css" rel="stylesheet">
+  <link href="./css/navbar.css" rel="stylesheet">
+
+  <link href="./css/dashboard.css" rel="stylesheet"> -->
+
+  <link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{url_for('static', filename='css/navbar.css')}}" rel="stylesheet">
+  <link href="{{url_for('static', filename='css/story.css')}}" rel="stylesheet">
+
+  <link href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" rel="stylesheet">
+  <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Portland Malodour Project (aka Stinky)</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link" href="./index.html">Story</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./terminals.html">Terminal Dashboard</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid" class="row" style="width: 95%;">
+    <div class="row" style="margin:auto; width: 100%; height: 100px; border: 2px solid black; border-bottom: 0; ">
+      <div id="observablehq-viewof-stinkyDateSlider-5263f343"></div>
+    </div>
+    <div class="row" style="margin:auto; width: 100%; height: 80vh; ">
+      <div class="col-3" style="border: 2px solid black;">
+        <div class="row" style="height: 10%; border-bottom: 2px solid black;">
+          <div id="observablehq-viewof-selectAllFilter-5263f343"></div>
+        </div>
+        <div class="row" style="height: 15%;">
+          <div id="observablehq-viewof-terminalFilter-5263f343"></div>
+        </div>
+        <div class="row" style="height: 25%;">
+          <div id="observablehq-viewof-productTypeFilter-5263f343"></div>
+        </div>
+        <div class="row" style="height: 25%;">
+          <div id="observablehq-viewof-shipNameFilter-5263f343"></div>
+        </div>
+        <div class="row" style="height: 25%;">
+          <div id="observablehq-viewof-datesFilter-5263f343"></div>
+        </div>
+      </div>
+      <div class="col-9" style="border: 2px solid black;">
+        <div class="row" style="margin-top:10px; width: 101%; height: 64%;">
+          <div id="observablehq-viewof-mymap-5263f343"></div>
+        </div>
+        <div class="row" style="padding-left:25px; padding-right:0; width: 102%;  height: 33%;">
+          <div id="observablehq-viewof-mapData-42f2f98d"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="container-fluid DashboardText" class="row" style="width: 95%;">
+      <br>
+      <h3>Notes:</h3>
+      
+      <p> This dashboard overlays port activity with odour reports ranging from January 2020 to June 2021.
+        <p>Coincidence #1 - Asphalt shipment on April 26, 2021 and reports made concerning tar and asphalt.</p>
+        <p></p>Coincidence #2 - On Noveber 11, 2020, the ship Cape Gavi performs unusual activity compared to any other active dates.</p>
+      
+      </div>
+  </div>
+  
+</body>
+<!-- <script src="./scripts/terminalDashboard.js" type="module"></script> -->
+<script src="{{url_for('static', filename='scripts/terminalDashboard.js')}}" type="module"></script>
+
+</html>
