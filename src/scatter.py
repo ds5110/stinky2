@@ -4,11 +4,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
-import statsmodels.api as sm
+from sklearn.linear_model import LinearRegression
 
-
-complaints_df = pd.read_csv("./output_data/smc_data.csv")
-weather_df = pd.read_csv("./output_data/weather_data.csv")
+complaints_df = pd.read_csv("../output_data/smc_data.csv")
+weather_df = pd.read_csv("../output_data/weather_data.csv")
 
 complaints_df["date"] = [time.strftime("%Y-%m-%d", time.strptime(dt, "%c")) for dt in complaints_df["date & time"]]
 
@@ -26,6 +25,9 @@ df = df.merge(weather_df, on="date")
 # g = sns.scatterplot(x="average_wind", y="daily complaints", data=df)
 
 # g = sns.scatterplot(x="average_wind", y="daily complaints", data=df).set(title="Average wind speed vs number of daily complaints")
-g = sns.scatterplot(x="average_temp", y="daily complaints", data=df).set(title="Average temperature vs number of daily complaints")
+#g = sns.scatterplot(x="average_temp", y="daily complaints", data=df).set(title="Average temperature vs number of daily complaints")
+sns.set_theme(palette='muted', color_codes=True)
+sns.regplot(x='average_temp', y='daily complaints', data=df, scatter_kws={'color': 'b'}, line_kws={'color': 'r'}) \
+    .set(title="Average temperature vs daily complaints")
 
 plt.show()
