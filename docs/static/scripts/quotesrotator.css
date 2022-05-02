@@ -1,0 +1,23 @@
+/* Slideshow container */
+.slideshow-container {
+  float: right;
+  margin: 50px;
+  margin-right:10px;
+  background: #f1f1f1f1;
+  width: 380px;
+  height: 150px;
+}
+
+/* Slides */
+.comment {
+  display: none;
+  padding: 30px;
+  text-align: center;
+}
+
+/* Add an italic font style to all quotes */
+q {font-style: italic;}
+
+/* Add a blue color to the author */
+.author {color: cornflowerblue;
+}
