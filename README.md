@@ -1,5 +1,6 @@
 # stinky2
-Turning stinky into a production site
+
+Studying complaints of smells in Portland and South Portland, continuing [previous work](https://github.com/ds5110/stinky))
 
 ## Local development
 
